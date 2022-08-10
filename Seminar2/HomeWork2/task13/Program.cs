@@ -3,7 +3,7 @@
     string[] errmsg = {"Нет третьей цифры"};
     int val1 = 0;
     int retval = 0;
-    int SecNumber(int val2)
+    int ThirdNumber(int val2)
         {
             val2 = Math.Abs(val2);
             if ((val2 < 100) & (val2 != 0) ) { return -1;}
@@ -15,7 +15,7 @@
     {
         Console.Write("Введите число (0 - завершить работу): ");
         val1 = Convert.ToInt32(Console.ReadLine());    
-        retval = SecNumber(val1);   
+        retval = ThirdNumber(val1);   
 
         if (retval > 0) { Console.WriteLine($"{val1} -> {retval}"); }
         else if (retval < 0) { Console.WriteLine(errmsg[Math.Abs(retval) - 1]); }
