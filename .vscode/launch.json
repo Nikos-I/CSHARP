@@ -14,8 +14,9 @@
             "args": [],
             "cwd": "${workspaceFolder}/Seminar1/HomeWork1/task8",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
+			"requireExactSource": false
         },
         {
             "name": ".NET Core Attach",
