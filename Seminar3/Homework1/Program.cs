@@ -13,9 +13,8 @@ int ReadInt(int dig) // Ввод целого числа разрядности 
         valstr = Console.ReadLine();
         if (!(String.IsNullOrEmpty(valstr)) && (int.TryParse(valstr, out val1)))
         {
-            if (
-                (val1 == 0) || (((val1 / ( Convert.ToInt32(Math.Pow(10, (dig-1))))) > 0) && ((val1 / ( Convert.ToInt32(Math.Pow(10, (dig-1))))) < 10))
-            ) return val1;   
+            int numdig = Convert.ToInt32(Math.Pow(10, (dig-1))); 
+            if ((val1 == 0) || ((val1 / numdig) > 0) && ((val1 / numdig) < 10)) return val1;   
         } 
         Console.WriteLine("Ошибка ввода");
     }
