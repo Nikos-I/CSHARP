@@ -7,37 +7,42 @@
 // 7 4 2 1
 // 9 5 3 2
 // 8 4 4 2
+using System;
+using System.Linq;
 
 int[,] array = new int[,] { { 1, 4, 7, 2 }, { 5, 9, 2, 3 }, { 8, 4, 2, 4 } };
 
 void ArraySortCol(ref int[,] arr)
-{   
-    string[] pr = new string[6];
+{
     int numbersRow = arr.GetLength(0);
     int numbersCol = arr.GetLength(1);
     int[] arrTemp = new int[numbersCol];
-    // Array.Sort(
+
     for (int i = 0; i < numbersRow; i++)
     {
         for (int j = 0; j < numbersCol; j++)
-            arrTemp[j] = arr[i,j];
-        Array.Sort(arrTemp,0,numbersCol);
-        
+            arrTemp[j] = arr[i, j];
+        arrTemp = arrTemp.OrderByDescending(c => c).ToArray();
+        for (int j = 0; j < numbersCol; j++)
+            arr[i, j] = arrTemp[j];
     }
 }
 
 void Print2DArrayInt(ref int[,] arraySrc)
 {
-    for (int i = 0; i < arraySrc.GetLength(0); i++)
+    int numbersRow = arraySrc.GetLength(0);
+    int numbersCol = arraySrc.GetLength(1);
+
+    for (int i = 0; i < numbersRow; i++)
     {
         System.Console.WriteLine();
-        for (int j = 0; j < arraySrc.GetLength(1); j++)
+        for (int j = 0; j < numbersCol; j++)
             System.Console.Write($"{arraySrc[i, j]} ");
     }
     System.Console.WriteLine();
 }
 
-
+Print2DArrayInt(ref array);
 ArraySortCol(ref array);
 Print2DArrayInt(ref array);
 
